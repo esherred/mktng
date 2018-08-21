@@ -1,0 +1,129 @@
+$button-color: #fbaf31;
+$footer-color: #053671;
+
+$white: #ffffff;
+$black: #000000;
+
+$border-radius: .25rem;
+
+$font: 'Open Sans', sans-serif;
+
+body {
+  font-family: $font;
+
+  .btn-primary {
+    background-color: $button-color;
+    border-color: $button-color;
+    white-space: normal;
+    &:hover {
+      background-color: darken($button-color, 10%);
+      border-color: darken($button-color, 10%);
+    }
+  }
+
+  a {
+    color: $button-color;
+    &:hover {
+      text-decoration: none;
+      color: darken($button-color, 10%);
+    }
+  }
+  header {
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    .container {
+      &.background {
+        background: rgba($white, .83);
+        border-bottom-right-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
+      }
+
+      .logo {
+        img {
+          max-height: 150px;
+        }
+      }
+    }
+  }
+
+  main {
+    background-color: $footer-color;
+    .container {
+      background-color: $white;
+      border-radius: $border-radius;
+
+      article {
+        border-bottom: 2px solid rgba($black, 0.6);
+
+        &:last-child {
+          border-bottom: none;
+          margin-bottom: 0px !important;
+          padding-bottom: 0px !important;
+        }
+
+        .excerpt {
+          font-style: italic;
+          p {
+            margin-bottom: 0px;
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    background-color: $footer-color;
+    .container {
+      .social {
+        .twitter {
+          .fa-circle {
+            color: #00aced;
+          }
+          &:hover {
+            .fa-circle {
+              color: lighten(#00aced, 10%);
+            }
+          }
+        }
+        .facebook-f {
+          .fa-circle {
+            color: #3b5998;
+          }
+          &:hover {
+            .fa-circle {
+              color: lighten(#3b5998, 10%);
+            }
+          }
+        }
+        .google-plus-g {
+          .fa-circle {
+            color: #dd4b39;
+          }
+          &:hover {
+            .fa-circle {
+              color: lighten(#dd4b39, 10%);
+            }
+          }
+        }
+        .youtube {
+          .fa-circle {
+            color: #a82400;
+          }
+          &:hover {
+            .fa-circle {
+              color: lighten(#a82400, 10%);
+            }
+          }
+        }
+      }
+
+      .logo {
+        img {
+          max-width: 200px;
+          height: auto;
+        }
+      }
+    }
+  }
+}
