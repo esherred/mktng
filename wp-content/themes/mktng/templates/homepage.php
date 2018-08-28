@@ -21,9 +21,9 @@
     <?php if ( have_rows( 'buttons' ) ) : ?>
       <div class="container mt-3">
         <div class="row justify-content-center">
-          <nav class="nav col">
+          <nav class="nav col buttons">
             <?php while ( have_rows( 'buttons' ) ) : the_row(); ?>
-              <a class="nav-link flex-fill btn btn-primary mx-3 mb-3 mb-lg-0" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?></a>
+              <a class="nav-link flex-fill btn btn-primary mx-3 mb-3 mb-xl-0" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?></a>
             <?php endwhile; ?>
           </nav>
         </div>
@@ -57,6 +57,7 @@
         <div class="row">
           <div class="col">
             <a id="media"></a>
+            <h2 class="mb-3 text-center">What They're Saying in the Media</h2>
             <?php while ( $posts->have_posts() ) : $posts->the_post(); ?>
               <article class="mb-3 pb-3">
                 <h2><a target="_blank" href="<?php the_field( 'link' ); ?>"><?php the_title(); ?></a></h2>
