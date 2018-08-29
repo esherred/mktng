@@ -1,5 +1,9 @@
 <?php
 
+@ini_set( 'upload_max_size' , '64M' );
+@ini_set( 'post_max_size', '64M');
+@ini_set( 'max_execution_time', '300' );
+
 // Add Theme Settings Page If ACF Is Enabled
 if( function_exists('acf_add_options_page') ) {
   
