@@ -32,7 +32,16 @@
   </header>
 <?php endif; ?>
 
-<?php $posts = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => -1, ) ); ?>
+<?php
+  if ( get_field( 'news_post_count', 'options' ) != null || get_field( 'news_post_count', 'options' ) != '' ) {
+    $post_count = (int)get_field( 'news_post_count', 'options' );
+  } else {
+    $post_count = -1;
+  }
+
+  var_dump($post_count);
+?>
+<?php $posts = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => $post_count, ) ); ?>
 <?php if ( get_field( 'vv_header_text', 'options' ) || get_field( 'vv_iframe', 'options' ) || $posts->have_posts() ) : ?>
   <main class="pb-3 pt-5">
     <?php if ( get_field( 'vv_header_text', 'options' ) || get_field( 'vv_iframe', 'options' ) ) : ?>
@@ -41,7 +50,7 @@
           <div class="col text-center">
             <a id="contact"></a>
             <?php if ( get_field( 'vv_header_text', 'options' ) ) : ?>
-              <h2><?php the_field( 'vv_header_text', 'options' ); ?></h2>
+              <h2 class="mb-3 text-center"><?php the_field( 'vv_header_text', 'options' ); ?></h2>
             <?php endif; ?>
             <?php if ( get_field( 'vv_iframe', 'options' ) ) : ?>
               <div class="vv">
@@ -57,7 +66,9 @@
         <div class="row">
           <div class="col">
             <a id="media"></a>
-            <h2 class="mb-3 text-center">What They're Saying in the Media</h2>
+            <?php if ( get_field( 'news_headline', 'options' ) ) : ?>
+              <h2 class="mb-3 text-center"><?php the_field( 'news_headline', 'options' ); ?></h2>
+            <?php endif; ?>
             <?php while ( $posts->have_posts() ) : $posts->the_post(); ?>
               <article class="mb-3 pb-3">
                 <h2><a target="_blank" href="<?php the_field( 'link' ); ?>"><?php the_title(); ?></a></h2>
