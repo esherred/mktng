@@ -38,8 +38,6 @@
   } else {
     $post_count = -1;
   }
-
-  var_dump($post_count);
 ?>
 <?php $posts = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => $post_count, ) ); ?>
 <?php if ( get_field( 'vv_header_text', 'options' ) || get_field( 'vv_iframe', 'options' ) || $posts->have_posts() ) : ?>
